@@ -4,6 +4,6 @@
     <color name="colorPrimaryDark">#00251a</color>
     <color name="colorAccent">#39796b</color>
 
-    <color name="btnSingUp">#39796b</color>
+    <color name="btnSingUp">#3F51B5</color>
     <color name="btnSingActive">#A9d440</color>
 </resources>
