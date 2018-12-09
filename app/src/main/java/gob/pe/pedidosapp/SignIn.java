@@ -1,6 +1,7 @@
 package gob.pe.pedidosapp;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
 import gob.pe.pedidosapp.Model.User;
+import gob.pe.pedidosapp.Common.Common;
 
 public class SignIn extends AppCompatActivity {
 
@@ -52,9 +54,14 @@ public class SignIn extends AppCompatActivity {
                             dialog.dismiss();
                             User user = dataSnapshot.child(edtPhone.getText().toString()).getValue(User.class);
                             if (user.getPassword().equals(edtPassword.getText().toString())) {
-                                Toast.makeText(SignIn.this, "Sign in exitosamente!!", Toast.LENGTH_SHORT).show();
+                                {
+                                    Intent intent=new Intent(SignIn.this,Home.class);
+                                    Common.currentUser=user;
+                                    startActivity(intent);
+                                    finish();
+                                }
                             } else {
-                                Toast.makeText(SignIn.this, "Sign in fallido!!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SignIn.this, "Eror al registrar!!", Toast.LENGTH_SHORT).show();
                             }
                         }else{
                             dialog.dismiss();
